@@ -5,7 +5,7 @@ import { GiBed } from 'react-icons/gi'
 import { MdOutlineBathtub } from 'react-icons/md'
 import { PiToilet } from 'react-icons/pi'
 
-export default function ProductCard({ id, image, title, price, address, bathroom, bedroom, restroom, }) {
+export default function ProductCard({ id, image, title, price, address, bathroom, bedroom, restroom, full }) {
     return (
         <Link to={`/listing/${id}`} className="rounded-md overflow-hidden min-h-44 md:min-h-56 hover:-translate-y-1 hover:shad bg-white group">
             <div className="h-32 w-full overflow-hidden relative">
@@ -16,17 +16,20 @@ export default function ProductCard({ id, image, title, price, address, bathroom
                 <h5 className="text-slate-700 text-base sm:text-lg text-justify leading-tight font-semibold">{title}</h5>
                 <p className="flex items-center font-medium text-xs sm:text-sm opacity-70 text-slate-600"><TbMapPinPin className="mr-1 text-inherit" />{address}</p>
             </div>
-            <div className="flex items-center justify-between p-2 md:p-2 bg-white group-hover:bg-orange-500 text-slate-700 group-hover:text-white">
-                <div className="flex items-center gap-[.15rem] md:gap-2 text-[.55rem] xl:text-xs">
-                    <GiBed /> <p className="opacity-70">{bedroom} bedroom{bedroom > 1 ? 's' : ''}</p>
-                </div>
-                <div className="flex items-center gap-[.15rem] md:gap-2 text-[.55rem] xl:text-xs">
-                    <MdOutlineBathtub /> <p className="opacity-70">{bathroom} bathroom{bathroom > 1 ? 's' : ''}</p>
-                </div>
-                <div className="flex items-center gap-[.15rem] md:gap-2 text-[.55rem] xl:text-xs">
-                    <PiToilet /> <p className="opacity-70">{restroom} restroom{restroom > 1 ? 's' : ''}</p>
-                </div>
-            </div>
+            {
+                full ? <div className="flex items-center justify-between p-2 md:p-2 bg-white group-hover:bg-orange-500 text-slate-700 group-hover:text-white">
+                    <div className="flex items-center gap-[.15rem] md:gap-2 text-[.55rem] xl:text-xs">
+                        <GiBed /> <p className="opacity-70">{bedroom} bedroom{bedroom > 1 ? 's' : ''}</p>
+                    </div>
+                    <div className="flex items-center gap-[.15rem] md:gap-2 text-[.55rem] xl:text-xs">
+                        <MdOutlineBathtub /> <p className="opacity-70">{bathroom} bathroom{bathroom > 1 ? 's' : ''}</p>
+                    </div>
+                    <div className="flex items-center gap-[.15rem] md:gap-2 text-[.55rem] xl:text-xs">
+                        <PiToilet /> <p className="opacity-70">{restroom} restroom{restroom > 1 ? 's' : ''}</p>
+                    </div>
+                </div> : ""
+            }
+
         </Link>
     )
 }

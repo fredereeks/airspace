@@ -24,7 +24,7 @@ export default function FeaturedSlide() {
 
         houseData.filter(house => house.featured === true).map(house => (
             <SwiperSlide key={house.id}>
-                <ProductCard key={house.id} {...house} />
+                <ProductCard key={house.id} {...house} full={false} />
             </SwiperSlide>
         ))
     }

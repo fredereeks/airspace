@@ -1,7 +1,25 @@
 import React from 'react'
+import { estate_frontal } from '../assets/images'
+import { houseData } from '../data/houseData'
+import ProductCard from '../components/ProductCard'
 
 export default function Listing() {
   return (
-    <div>Listing</div>
+    <main className="flex flex-col relative">
+      <div className="bg-main relative min-h-[65vh] h-[70vh] px-4">
+        <img src={estate_frontal} alt="" className="opacity-50 absolute top-0 left-0 w-full h-full object-cover" />
+        <div className="relative py-10 container mx-auto text-white flex flex-col justify-center h-full gap-2">
+          <h3 className="text-3xl md:text-4xl font-bold">Our Listing</h3>
+          <p className="text-base md:text-lg">We are always online and actively waiting for your message</p>
+        </div>
+      </div>
+      <section className="bg-primary py-20 px-4">
+        <div className="container mx-auto grid grid-cols-2 md:grid-cols-3 gap-5 sm:gap-7 md:gap-10">
+          {
+            houseData.map(house => <ProductCard key={house.id} {...house} full={true} />)
+          }
+        </div>
+      </section>
+    </main>
   )
 }

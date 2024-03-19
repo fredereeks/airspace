@@ -1,4 +1,3 @@
-import React from 'react'
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom'
 import Home from './pages/Home'
 import Listing from './pages/Listing'
@@ -8,6 +7,7 @@ import Blog from './pages/Blog'
 import Header from "./components/Header"
 import Contact from './pages/Contact'
 import Footer from './components/Footer'
+import SingleListing from './pages/SingleListing'
 
 
 export default function App() {
@@ -42,6 +42,10 @@ export default function App() {
         {
           path: "/listing",
           element: <Listing />
+        },
+        {
+          path: "/listing/:id",
+          element: <SingleListing />
         },
       ],
     },
