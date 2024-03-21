@@ -1,9 +1,9 @@
-import { estate_eating_table, estate_frontal, estate_home2, estate_home5, estate_keys, estate_sky } from "../assets/images";
+import { estate_eating_table, estate_frontal, estate_home2, estate_home5, estate_keys, estate_sky } from "../assets/images"
 
 export const houseData = [
     {
         id: "80560150",
-        image: estate_home2,
+        image: [estate_home2, estate_eating_table, estate_frontal],
         title: "Qiri Minimalistic House",
         price: 5000000,
         featured: true,
@@ -17,7 +17,7 @@ export const houseData = [
     },
     {
         id: "80560151",
-        image: estate_home5,
+        image: [estate_home5, estate_eating_table, estate_frontal],
         title: "Nsor Standard House",
         price: 7500000,
         featured: false,
@@ -31,7 +31,7 @@ export const houseData = [
     },
     {
         id: "80560152",
-        image: estate_eating_table,
+        image: [estate_eating_table, estate_keys, estate_frontal],
         title: "Trigan Elegant House",
         price: 9870000,
         featured: true,
@@ -45,7 +45,7 @@ export const houseData = [
     },
     {
         id: "80560153",
-        image: estate_frontal,
+        image: [estate_frontal, estate_home5, estate_frontal],
         title: "Kiro Luxury House",
         price: 8070000,
         featured: true,
@@ -59,7 +59,7 @@ export const houseData = [
     },
     {
         id: "80560154",
-        image: estate_sky,
+        image: [estate_sky, estate_eating_table, estate_frontal],
         title: "Ndip Minimalistic House",
         price: 4850000,
         featured: true,
@@ -74,7 +74,7 @@ export const houseData = [
     },
     {
         id: "80560155",
-        image: estate_keys,
+        image: [estate_keys, estate_eating_table, estate_frontal],
         title: "Qanan Luxury House",
         price: 7790000,
         featured: true,

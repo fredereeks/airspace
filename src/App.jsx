@@ -47,13 +47,13 @@ export default function App() {
           path: "/listing/:id",
           element: <SingleListing />
         },
+        {
+          path: "*",
+          element: <Error />
+        }
       ],
     },
     
-    {
-      path: "*",
-      element: <Error />
-    }
   ])
   return (
    <div className="bg-primary">
