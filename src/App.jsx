@@ -8,6 +8,7 @@ import Header from "./components/Header"
 import Contact from './pages/Contact'
 import Footer from './components/Footer'
 import SingleListing from './pages/SingleListing'
+import { Toaster } from 'react-hot-toast'
 
 
 export default function App() {
@@ -57,6 +58,7 @@ export default function App() {
   ])
   return (
    <div className="bg-primary">
+    <Toaster />
     <RouterProvider router={pageRoutes}></RouterProvider>
    </div>
   )
