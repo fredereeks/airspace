@@ -12,7 +12,7 @@ export default function FeaturedSlide() {
         breakpoints={{
             320: { slidesPerView: 2, spaceBetween: 15 },
             650: { slidesPerView: 3, spaceBetween: 15 },
-            960: { slidesPerView: 4, spaceBetween: 15 },
+            1200: { slidesPerView: 4, spaceBetween: 15 },
         }}
         autoplay={{delay: 4000}}
         fadeEffect={{crossFade: true}}

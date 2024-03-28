@@ -1,18 +1,27 @@
-import React, { useEffect, useState } from 'react'
+import  { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { houseData } from '../data/houseData'
-import { GiBed, GiHouse } from 'react-icons/gi'
-import { MdOutlineBathtub } from 'react-icons/md'
+import { GiBed } from 'react-icons/gi'
+import { MdOutlineBathtub, MdOutlineShoppingCart } from 'react-icons/md'
 import { PiToilet, PiWarehouse } from 'react-icons/pi'
+import { useDispatch } from 'react-redux'
+import { addToCart } from '../features/slices/cartSlice'
 
 export default function SingleListing() {
   const params = useParams()
   const [data, setData] = useState(null)
   const [loading, setLoading] = useState(true)
 
+  const dispatch = useDispatch()
+  const handleAddToCart = e => {
+    e.preventDefault()
+    e.stopPropagation()
+    dispatch(addToCart({ id: data?.id, image: data?.image, title: data?.title, price: data?.price }))
+  }
+
   useEffect(() => {
     const house = houseData.find(el => el.id === params.id.toString())
-    if (house) setData(prev => ({ ...house }))
+    if (house) setData(() => ({ ...house }))
     setLoading(false)
   }, [params.id])
 
@@ -26,7 +35,10 @@ export default function SingleListing() {
           <img src={data?.image[2]} alt={data?.title} className="object-cover h-full w-full rounded-md" />
         </div>
         <div className="container mx-auto flex flex-col py-4">
+          <div className="flex justify-between items-center gap-4">
           <h3 className="text-lg md:text-3xl text-slate-800 font-semibold">Description</h3>
+            <button onClick={handleAddToCart} className="bg-slate-700 hover:bg-orange-500 py-2 px-4 w-max rounded-2xl text-xs sm:text-sm text-white text-center"><MdOutlineShoppingCart /></button>
+          </div>
           <p className="text-base md:text-lg text-slate-600 font-medium">{data?.description} </p>
           <div className="flex items-center py-4 gap-4 md:gap-8 text-slate-700">
             <div className="flex items-center gap-2 md:gap-2 text-base md:text-lg">

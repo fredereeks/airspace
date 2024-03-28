@@ -12,13 +12,13 @@ export default function ProductCard({ id, image, title, price, address, bathroom
     const handleAddToCart = e => {
         e.preventDefault()
         e.stopPropagation()
-        dispatch(addToCart({payload: {id, image, title, price}}))
+        dispatch(addToCart({id, image, title, price}))
     }
     return (
         <Link to={`/listing/${id}`} className="rounded-md overflow-hidden min-h-44 md:min-h-56 hover:-translate-y-1 hover:shad bg-white group">
             <div className="h-32 w-full overflow-hidden relative">
-                <div className="bg-slate-700 group-hover:bg-orange-500 py-1 px-4 w-32 rounded-2xl text-xs sm:text-sm text-white text-center absolute z-10 top-4 left-3">&#8358;{price.toLocaleString()}</div>
-                <button onClick={handleAddToCart} className="bg-slate-700 hover:bg-orange-500 py-1 px-4 w-max rounded-2xl text-xs sm:text-sm text-white text-center absolute z-10 top-4 right-3"><MdOutlineShoppingCart /></button>
+                <div className="bg-slate-700 group-hover:bg-orange-500  py-1 px-4 w-32 rounded-2xl text-xs sm:text-sm text-white text-center absolute z-10 top-4 left-3">&#8358;{price.toLocaleString()}</div>
+                {full && <button onClick={handleAddToCart} className="bg-slate-700 hover:bg-orange-500 py-1 px-4 w-max rounded-2xl text-xs sm:text-sm text-white text-center absolute z-10 top-4 right-3"><MdOutlineShoppingCart /></button>}
                 <img src={image[0]} alt={title} className="w-full h-full object-cover object-center" />
             </div>
             <div className="flex flex-col justify-between px-4 pb-4 pt-2">

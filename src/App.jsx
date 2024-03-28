@@ -9,6 +9,7 @@ import Contact from './pages/Contact'
 import Footer from './components/Footer'
 import SingleListing from './pages/SingleListing'
 import { Toaster } from 'react-hot-toast'
+import Cart from './pages/Cart'
 
 
 export default function App() {
@@ -35,6 +36,10 @@ export default function App() {
         {
           path: "/blog",
           element: <Blog />
+        },
+        {
+          path: "/cart",
+          element: <Cart />
         },
         {
           path: "/contact",
